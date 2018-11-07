@@ -23,11 +23,10 @@
             <tbody>
                 @if($users)
                     @foreach ($users as $user)
-                                                
                         <tr>
                             <th scope="row">{{$user->id}}</th>
-                            <td>{{$user->photo}}</td>
-                            <td>{{$user->name}}</td>
+                            <td><img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
+                            <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->role ? $user->role->name : 'has no Role'}}</td>
                             <td>{{$user->is_active == 1 ? 'Active' : 'No Active'}}</td>
@@ -38,5 +37,4 @@
                 @endif
             </tbody>
         </table>
-
 @stop
