@@ -103,7 +103,7 @@ class AdminUsersController extends Controller
     {
         $user = User::findOrFail($id);
 
-        dd(unlink($user->photo->file));
+        unlink($user->photo->file);
         
         $user->delete();
 
